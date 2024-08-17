@@ -44,7 +44,7 @@ HEADERS	=	src/Includes/Cgi.hpp \
 
 
 CPP	=	c++
-CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98 -Wconversion -O3 -I./src/Includes #-fsanitize=address -g
+CPPFLAGS	=	-Wall -Wextra -Werror -Wconversion -O3 -I./src/Includes #-fsanitize=address -g
 
 BIN			=	bin
 
@@ -74,5 +74,12 @@ cclean 	:
 	clean
 
 run		:	all
-	./webserv configurations/default.conf
+	./webserv configurations/default.conf&
 
+test	:
+	curl 127.0.0.1:8090
+	echo "Done !!"
+
+kill	:
+	killall webserv
+	echo "Done !!"

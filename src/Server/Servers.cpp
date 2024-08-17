@@ -207,12 +207,12 @@ void Servers::readyToRead(size_t i, vector<pollfd> &poll_fd)
 	{
 		read_request.Read();
 	}
-	catch (ReadRequest::ReadException)
+	catch (ReadRequest::ReadException&)
 	{
 		master[i].respond = makeRespose(master[i], servers);
 		master[i].setFdPoll(POLLOUT);
 	}
-	catch (closeException)
+	catch (closeException&)
 	{
 		master[i].respond = "";
 		master[i].setFdPoll(POLLOUT);

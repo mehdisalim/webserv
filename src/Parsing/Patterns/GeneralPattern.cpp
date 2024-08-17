@@ -114,8 +114,8 @@ void	GeneralPattern::updateData(const Data& _data, size_t pos)
 
 void	GeneralPattern::clearKey(const String & key)
 {
-	vector<Data>::const_iterator	iterBegin = data.begin();
-	vector<Data>::const_iterator	iterEnd = data.end();
+	vector<Data>::iterator	iterBegin = data.begin();
+	vector<Data>::iterator	iterEnd = data.end();
 	long long indx = 0;
 	while (iterBegin < iterEnd)
 	{

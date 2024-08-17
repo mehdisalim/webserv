@@ -1,5 +1,6 @@
 #include "Servers.hpp"
 #include "webserver.h"
+#include <signal.h>
 
 
 #define READ_SIZE 1000

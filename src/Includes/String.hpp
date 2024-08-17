@@ -4,6 +4,8 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <cstdint>
+
 using namespace std;
 
 

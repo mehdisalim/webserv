@@ -1,6 +1,7 @@
 #include "Response.hpp"
 #include <cmath>
 #include <signal.h>
+#include <sys/wait.h>
 
 int Response::isDirectory(const string& path)
 {
@@ -78,7 +79,8 @@ string Response::runScript(vector<String> args, string fileName)
 				double timeout_seconds = (cgi_time.empty()) ? 3 : strtod(cgi_time.front().getValue().c_str(), NULL);
 				const string &resBody = request.getBody();
 				close(input[0]);
-				write(input[1], resBody.c_str(), resBody.size());
+				if (write(input[1], resBody.c_str(), resBody.size()) == -1)
+					exit(1);
 				close(input[1]);
 
 				while (true) {
@@ -248,7 +250,7 @@ void Response::isFormed()
 		throw 400;
 	else if (request.getPath().length() > 2048)
 		throw 414;
-	else if (isinf(size) || (double)request.getBody().size() > size)
+	else if (isinf(size) || (long long)request.getBody().size() > size)
 		throw 413;
 }
 void Response::isMatched() {
