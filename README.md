@@ -79,3 +79,9 @@ The evaluation will focus on:
 - Correct implementation of mandatory features.
 - Stability and resilience under load.
 - Correctness of HTTP responses and behavior.
+
+## Contributing
+Contributions to this project are welcome! If you have suggestions or improvements, please open an issue or submit a pull request. When contributing, please ensure that your code follows the existing style and conventions.
+
+## License
+This project is licensed under the MIT License. For more details, please refer to the LICENSE file.
